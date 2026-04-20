@@ -4,8 +4,12 @@ from datetime import datetime
 import pandas as pd
 
 # Load model
-model = pickle.load(open("model.pkl", "rb"))
-encoder = pickle.load(open("encoder.pkl", "rb"))
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model = pickle.load(open(os.path.join(BASE_DIR, "model.pkl"), "rb"))
+encoder = pickle.load(open(os.path.join(BASE_DIR, "encoder.pkl"), "rb"))
 
 # Page config
 st.set_page_config(page_title="AI Scrap Predictor", layout="wide")
@@ -80,5 +84,5 @@ with col2:
         st.info("👉 Enter values and click Predict")
 
 # Footer
-st.markdown("---")
-st.markdown("Made with ❤️ using AI & Streamlit")
+st.markdown("-----------")
+st.markdown("Made with ❤️ Streamlit")
